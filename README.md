@@ -7,7 +7,7 @@
 ├── assets/
 ├── css/
 ├── img/
-		└── theater/
+    └── theater/
 ├── js/
 ├── index.html
 └── README.md
