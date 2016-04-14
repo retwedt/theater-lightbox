@@ -1,0 +1,76 @@
+/* Scroll Gallery Main Styles */
+
+/* Default settings */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+#wrap {
+  width: 100%;
+  min-height: 100%;
+  border: 2px solid black;
+}
+#wrap h1 {
+  text-align: center;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 324px;
+  text-align: center;
+  z-index: -1;
+  border: 2px solid purple;
+}
+section {
+  width: 100%;
+  min-height: calc(100% - 324px); 
+  padding-top: 324px;
+  margin-bottom: 48px;
+  z-index: 1;
+  overflow-y: hidden;
+}
+
+
+/* Grid Gallery Structure */
+.grid-cell {
+  width: 25%;
+  height: 120px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  padding: 24px;
+  border: 1px solid pink;
+}
+.poster {
+  width: 100%;
+  height: 100%;
+  opacity: 1.0;
+  background-color: #DBDDE7;
+  border: 1px solid lavender;
+  /* disable user select */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+  /* transitions */
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.poster:hover {
+  cursor: pointer;
+  opacity: 0.6;
+  /* transitions */
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
