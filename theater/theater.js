@@ -26,9 +26,6 @@ modal.appendChild(modalClose);
 var modalContent = document.createElement("div");
 modalContent.setAttribute("class", "modal-content");
 modal.appendChild(modalContent);
-// title
-var modalTitle = document.createElement("h1");
-modal.appendChild(modalTitle);
 // text
 var modalText = document.createElement("div");
 modalText.setAttribute("class", "modal-description");
@@ -36,8 +33,6 @@ modal.appendChild(modalText);
 // media
 var image = document.createElement("img");
 var iframe = document.createElement("iframe");
-// iframe.setAttribute("width", "560px");
-// iframe.setAttribute("height", "315px");
 // timeline
 var timelineWrap = document.createElement("div");
 timelineWrap.setAttribute("class", "timeline-wrap");
@@ -55,7 +50,7 @@ body.insertBefore(modalWrap, body.firstChild);
 
 // DOM ELEMENTS
 // get all poster elements
-var posters = document.querySelectorAll(".poster");
+var posters = document.querySelectorAll(".theater");
 // global array to store a list of the group names
 var groupNames = [];
 // global object to store a list of .poster elements under their respective group names
@@ -84,7 +79,7 @@ window.onresize = getDimensions;
 // EVENTS
 for (var i=0; i<posters.length; i++ ) {
 	// collect posters in an object, group names in a list
-	var curName = posters[i].dataset.posterGroup;
+	var curName = posters[i].dataset.theaterGroup;
 	var add = false;
 	if (groupNames.length === 0) {
 		groups[curName] = [];
@@ -107,7 +102,7 @@ for (var i=0; i<posters.length; i++ ) {
 	// add events to poster elements
 	posters[i].addEventListener("click", function() {
 		// figure out what # poster was clicked on
-		currentPosterGroup = this.dataset.posterGroup;
+		currentPosterGroup = this.dataset.theaterGroup;
 		currentPosterNum = groups[currentPosterGroup].indexOf(this);
 
 		// build modal using current poster info
@@ -180,22 +175,23 @@ function updateModal(posterGroup, posterNum, direction) {
 	// update global current poster values
 	currentPosterGroup = posterGroup;
 	currentPosterNum = posterNum;
-	var currentPoster = groups[currentPosterGroup][currentPosterNum].id;
+	var src = groups[currentPosterGroup][currentPosterNum].querySelector("img").alt;
+	var txt = groups[currentPosterGroup][currentPosterNum].querySelector("img").title;
 
 
 	// use poster info to update the modal box before showing it
 	var newEl;
 	var type;
-	if (info[currentPoster]["type"] === "img") {
+	if (groups[currentPosterGroup][currentPosterNum].dataset.type === "img") {
 		newEl = image.cloneNode(true);
 		type = "img";
-	} else if (info[currentPoster]["type"] === "vid") {
+	} else if (groups[currentPosterGroup][currentPosterNum].dataset.type === "vid") {
 		newEl = iframe.cloneNode(true);
 		type = "vid";
 	} else {
 		console.log("wrong media type!");
 	}
-	newEl.setAttribute("src", info[currentPoster]["src"]);
+	newEl.setAttribute("src", src);
 	modalContent.appendChild(newEl);
 	// calculate maximum image size
 	// use a delay to check current image size so dom can load
@@ -212,8 +208,8 @@ function updateModal(posterGroup, posterNum, direction) {
 		setModalDimesions(newEl);
 	}, 10);
 
-	modalTitle.textContent = info[currentPoster]["title"];
-	modalText.textContent = info[currentPoster]["description"];
+	// modalTitle.textContent = info[currentPoster]["title"];
+	modalText.textContent = txt;
 	// show modal
 	modal.setAttribute("class", "modal active");
 }
@@ -221,7 +217,7 @@ function setModalDimesions(el) {
 	var imgRatio = mediaWidth / mediaHeight;
 
 	// calculate width based on height
-	var newHeight = (winHeight * 0.9) - 100;
+	var newHeight = (winHeight * 0.9) - 80;
 	var newWidth = newHeight * imgRatio;
 
 	// if the width is wider than the screen, calculate ratio based on width instead

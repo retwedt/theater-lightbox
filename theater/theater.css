@@ -39,19 +39,19 @@
 #modal-close {
   width:12px;
   height:12px;
-  background-image: url("../img/theater/close.png");
+  background-image: url("./img/close.png");
   top: 10px;
   right: 10px;
 }
 #modal-right {
-  background-image: url("../img/theater/right.png");
+  background-image: url("./img/right.png");
   width:18px;
   height:132px;
   top: calc(50% - 66px);
   right: 6px;
 }
 #modal-left {
-  background-image: url("../img/theater/left.png");
+  background-image: url("./img/left.png");
   width:18px;
   height:132px;
   top: calc(50% - 66px);
@@ -103,7 +103,7 @@
   width: 96%;
   height: 20px;
   margin: 2px auto;
-  padding: 0px 12px;
+  padding: 5px;
   text-align: left;
   font-size: 16px;
 }
