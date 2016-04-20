@@ -7,8 +7,8 @@
 ├── assets/
 ├── css/
 ├── img/
-    └── theater/
-├── js/
+├── theater/
+    └── img/
 ├── index.html
 └── README.md
 ```
