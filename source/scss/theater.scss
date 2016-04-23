@@ -1,0 +1,221 @@
+/* theater.css - a lightbox clone */
+
+
+// Import Custom Variables
+@import "custom-variables";
+// setup backup defaults for custom user variables
+$wrap-bg-color: rgba(40,40,40,0.5) !default;
+$modal-bg-color: rgba(60,60,60,0.96) !default;
+$btn-prefix: null !default;
+// mixin to setup button bg-images with custom prefix variable
+@mixin setupBtn($d, $p) {
+	@if ($p) {
+		$btn: "./img/" + $p + "-" + $d + ".png";
+		background-image: url($btn);
+	} @else {
+		$btn: "./img/" + $d + ".png";
+		background-image: url($btn);
+	}
+}
+
+
+/* Modal Styles */
+.modal-wrap {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: $wrap-bg-color;
+  color: white;
+  z-index: 100;
+	.modal {
+		// center modal box on screen
+		// 	 from https://css-tricks.com/centering-percentage-widthheight-elements/
+		position: absolute;
+	  left: 50%;
+	  top: 50%;
+	  transform: translate(-50%, -50%);
+	  padding: 12px 24px 8px 24px;
+	  background-color: $modal-bg-color;
+	  // rounded corners
+	  border-radius: 4px 4px 4px 4px;
+	  -moz-border-radius: 4px 4px 4px 4px;
+	  -webkit-border-radius: 4px 4px 4px 4px;
+	  // shadows
+	  -webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+	  -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+	  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+
+	  // Buttons
+		#modal-btn {
+		  opacity: 0.16;
+		  position: absolute;
+		  // disable user select
+		  -moz-user-select: none; // Firefox
+		  -ms-user-select: none; // Internet Explorer
+		  -webkit-user-select: none; // Chrome, Safari, and Opera
+		  -webkit-touch-callout: none; //  Disable Android and iOS callouts
+			&:hover {
+			  cursor: pointer;
+			  opacity: 0.4;
+			}
+		}
+		#modal-close {
+			@extend #modal-btn;
+		  width:12px;
+		  height:12px;
+		  @include setupBtn("close", $btn-prefix);
+		  top: 10px;
+		  right: 10px;
+		}
+		#modal-right {
+			@extend #modal-btn;
+		  @include setupBtn("right", $btn-prefix);
+		  width:18px;
+		  height:132px;
+		  top: calc(50% - 66px);
+		  right: 6px;
+		}
+		#modal-left {
+			@extend #modal-btn;
+		  @include setupBtn("left", $btn-prefix);
+		  width:18px;
+		  height:132px;
+		  top: calc(50% - 66px);
+		  left: 0px;
+		}
+		/* modal content */
+		.modal-content {
+		  margin: 12px auto;
+		  text-align: center;
+			img, iframe {
+			  // rounded corners
+			  border-radius: 4px 4px 4px 4px;
+			  -moz-border-radius: 4px 4px 4px 4px;
+			  -webkit-border-radius: 4px 4px 4px 4px;
+			  // shadows
+			  -webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.25);
+			  -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.25);
+			  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.25);
+			  // disable user select
+			  -moz-user-select: none; // Firefox
+			  -ms-user-select: none; // Internet Explorer
+			  -webkit-user-select: none; // Chrome, Safari, and Opera
+			  -webkit-touch-callout: none; // Disable Android and iOS callouts
+			}
+			.modal-description {
+			  width: 96%;
+			  height: 36px;
+			  margin: 6px auto;
+			  padding: 4px;
+			  font-size: 12px;
+			  overflow-y: scroll;
+			}
+		}
+		// progress bar for bottom of slide-show box
+		.timeline-wrap {
+		  height: 24px;
+		  margin: 6px auto;
+		  z-index: 10;
+			// default styling for the timeline dots
+			.dot {
+			  display: inline-block;
+			  vertical-align: top;
+			  background-color: #fff;
+			  opacity: 0.4;
+			  // border-radius
+			  -webkit-border-radius: 50px;
+			  -moz-border-radius: 50px;
+			  -o-border-radius: 50px;
+			  border-radius: 50px;
+			  // shadows
+			  -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+			  -moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+			  -moz-o-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+			  box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+			}
+			// specific sizes for big and small dots
+			// big dots are timeline markers, small dots are separators
+			.dot-big {
+				@extend .dot;
+			  width: 10px;
+			  height: 10px;
+			  margin: 5px;
+				&:hover {
+				  cursor: pointer;
+				  width: 14px;
+				  height: 14px;
+				  margin: 3px;
+				  opacity: 0.65;
+				}
+			}
+			.dot-small {
+				@extend .dot;
+			  width: 4px;
+			  height: 4px;
+			  margin: 8px;
+			}
+			#highlight {
+			  width: 14px;
+			  height: 14px;
+			  margin: 3px;
+			  opacity: 0.6;
+				&:hover {
+				  cursor: pointer;
+					opacity: 0.7;
+				}
+			}
+		}
+	}
+}
+
+
+// Custom CSS Scrollbar applied to any div inside of .modal-description
+//    from https://css-tricks.com/custom-scrollbars-in-webkit/
+div.modal *::-webkit-scrollbar {
+  width: 0.28em;
+}
+div.modal *::-webkit-scrollbar-thumb {
+  background: #5F6367;
+}
+div.modal *::-webkit-scrollbar-track {
+  background: #919496;
+}
+
+
+/* classes to fade in and out elements */
+.theater-bg-inactive {
+  visibility:hidden;
+  opacity:0;
+  /* transition */
+  -webkit-transition: all 0.5s ease-out 0.15s;
+  -moz-transition: all 0.5s ease-out 0.15s;
+  -o-transition: all 0.5s ease-out 0.15s;
+  transition: all 0.5s ease-out 0.15s;
+}
+.theater-bg-active {
+  visibility:visible;
+  opacity:1;
+  /* transition */
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.theater-modal-inactive {
+  visibility:hidden;
+  opacity:0;
+  /* transition */
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.theater-modal-active {
+  visibility:visible;
+  opacity:1;
+  /* transition */
+  -webkit-transition: all 0.5s ease-out 0.15s;
+  -moz-transition: all 0.5s ease-out 0.15s;
+  -o-transition: all 0.5s ease-out 0.15s;
+  transition: all 0.5s ease-out 0.15s;
+}
