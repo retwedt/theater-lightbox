@@ -31,7 +31,7 @@ Include the stylesheet on your document's `<head>`.
 </div>
 ```
 
-(Live Demo)[http://rextwedt.com/theater-lightbox/]
+[Live Demo](http://rextwedt.com/theater-lightbox/)
 
 
 ## Custom Builds
