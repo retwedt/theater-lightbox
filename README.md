@@ -68,4 +68,4 @@ $ sudo npm install
 
 ## License
 
-Theater-Lightbox is licensed under the (MIT license) [https://github.com/retwedt/theater-lightbox/blob/master/LICENSE.txt].
+Theater-Lightbox is licensed under the (MIT license)[https://github.com/retwedt/theater-lightbox/blob/master/LICENSE.txt].
