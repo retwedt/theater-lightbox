@@ -5,15 +5,6 @@ Welcome to Theater, a lightbox clone.
 
 ## How To Use
 
-<<<<<<< HEAD
-- Use the "theater" class attached to a div to activate the lightbox
-- Include an image elements inside the div as the thumb nail
-- Use data-theater group to group the images
-- Use data-type to set the type of modal being displayed (can be img or vid)
-
-
-## Directory Structure
-=======
 Include the stylesheet on your document's `<head>`.
 
 ```
@@ -29,7 +20,6 @@ Include the stylesheet on your document's `<head>`.
 
 
 ## Example:
->>>>>>> dev
 
 ```
 <!-- these images are in the same group -->
@@ -43,16 +33,6 @@ Include the stylesheet on your document's `<head>`.
 
 [Live Demo](http://rextwedt.com/theater-lightbox/)
 
-<<<<<<< HEAD
-├── assets/
-     └── fade/
-├── css/
-├── demo/
-     └── css/
-├── dist/
-     └── img/
-├── source/
-=======
 
 ## Custom Builds
 
@@ -86,18 +66,11 @@ There are three variables you can customize:
 		 ├── demo/
 		      ├── img/
 		      └── css/
->>>>>>> dev
      ├── img/
      ├── js/
      └── scss/
 ├── .gitignore
 ├── gulpfile.js
-<<<<<<< HEAD
-├── package.json
-├── bower.json
-└── README.md
-
-=======
 ├── bower.json
 ├── package.json
 ├── CHANGELOG.md
@@ -109,4 +82,3 @@ There are three variables you can customize:
 ## License
 
 Theater-Lightbox is licensed under the [MIT license](https://github.com/retwedt/theater-lightbox/blob/master/LICENSE.txt).
->>>>>>> dev
