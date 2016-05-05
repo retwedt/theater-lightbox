@@ -59,21 +59,22 @@ There are three variables you can customize:
 ## Directory Structure
 
 ```
-├── css/
-├── demo/
-     └── css/
 ├── dist/
      └── img/
 ├── docs/
-     └── gen/
 ├── src/
+		 ├── demo/
+		      ├── img/
+		      └── css/
      ├── img/
      ├── js/
      └── scss/
 ├── .gitignore
 ├── gulpfile.js
-├── package.json
 ├── bower.json
+├── package.json
+├── CHANGELOG.md
+├── LICENSE.txt
 └── README.md
 ```
 
