@@ -36,12 +36,24 @@ Include the stylesheet on your document's `<head>`.
 
 ## Custom Builds
 
-Theater-Lightbox is powered by gulp.js, and you can create custom builds pretty easily. First of all, you’ll need Gulp and all other dependencies:
+Theater-Lightbox is powered by gulp.js, so it's pretty easy to create a custom build. First you will need a copy of the Theater-Lightbox project.  Next, you will need Gulp and all other dependencies:
 
 ```
-$ cd path/to/yourProject/
-$ sudo npm install
+$ cd path/to/theaterLightbox/
+$ npm install // you will need sudo if you are on a mac!
 ```
+
+
+Run ```gulp``` to compile your custom builds.  You can customize the look of your lightbox using ```src/scss/_custom-variables.scss```.
+
+
+There are three variables you can customize:
+```
+// $wrap-bg-color: #EDD2D2;
+// $modal-bg-color: #C14343;
+// $btn-prefix: red;
+```
+```$wrap-bg-color``` describes the color the background fades to when the modal is active.  ```$modal-bg-color``` describes the color of the modal box.  ```$btn-prefix``` can be used to allow custom buttons.  This example will allow you to use custom buttons called ```red-left.png```, ```red-right.png```, and ```red-close.png```.
 
 
 ## Directory Structure
