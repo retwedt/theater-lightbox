@@ -1,18 +1,21 @@
 {
-  "name": "Theater",
-  "version": "1.0.0",
+  "name": "Theater-Lightbox",
+  "version": "1.1.0",
   "description": "Theater, A Lightbox Clone",
   "author": "Rex Twedt",
   "license": "MIT",
   "main": "gulpfile.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.1",
     "gulp-uglify": "^1.5.1",
-    "gulp-rename": "^1.2.2"
+    "jsdoc": "^3.4.0",
+    "merge-stream": "^1.0.0",
+    "minami": "^1.1.1"
   },
   "repository": {
     "type": "git",
@@ -21,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/retwedt/theater-lightbox.git/issues"
   },
-  "homepage": "https://github.com/retwedt/theater-lightbox.git#readme"
+  "homepage": "https://github.com/retwedt/theater-lightbox.git#readme",
+  "scripts": {
+    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
+  }
 }
