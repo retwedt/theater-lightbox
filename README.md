@@ -6,14 +6,21 @@ Welcome to Theater, a lightbox clone.
 ## How To Use
 
 Include the stylesheet on your document's `<head>`.
-
 ```
 <head>
-  <link rel="stylesheet" href="theater.css">
+  <link href="theater.css" rel="stylesheet">
 </head>
 ```
 
-- Attach the 'theater' class to a div to activate the lightbox
+Include the javascript file in your document's `<body>`, just before the closing tag.
+```
+<body>
+	// other code here
+  <script src="theater.min.js"></script>
+</body>
+```
+
+- Attach the `theater` class to a div to activate the lightbox
 - Include an image element inside the div, this image is the thumbnail.  Set the `alt` attribute to the url of the image.  Set the `title` attribute to the description of the image.
 - Use `data-theater-group='group-name'` to group the images
 - Use `data-theater-type='type'` to set the type of modal being displayed, can be `'img'`, `'vid'`, or `'youTube'`
@@ -43,9 +50,7 @@ $ cd path/to/theaterLightbox/
 $ npm install // you will need sudo if you are on a mac!
 ```
 
-
-Run ```gulp``` to compile your custom builds.  You can customize the look of your lightbox using ```src/scss/_custom-variables.scss```.
-
+Run `gulp` to compile your custom builds.  You can customize the look of your lightbox using `src/scss/_custom-variables.scss`.
 
 There are three variables you can customize:
 ```
@@ -53,7 +58,7 @@ There are three variables you can customize:
 // $modal-bg-color: #C14343;
 // $btn-prefix: red;
 ```
-```$wrap-bg-color``` describes the color the background fades to when the modal is active.  ```$modal-bg-color``` describes the color of the modal box.  ```$btn-prefix``` can be used to allow custom buttons.  This example will allow you to use custom buttons called ```red-left.png```, ```red-right.png```, and ```red-close.png```.
+`$wrap-bg-color` describes the color the background fades to when the modal is active.  `$modal-bg-color` describes the color of the modal box.  `$btn-prefix` can be used to allow custom buttons.  This example will allow you to use custom buttons called `red-left.png`, `red-right.png`, and `red-close.png`.
 
 
 ## Directory Structure

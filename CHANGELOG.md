@@ -2,6 +2,9 @@
 
 ## CHANGELOG
 
+### May 8, 2016
+- Minor updates to library logic, docs
+
 ### May 5, 2016
 - Wrap library in an iffe to restrict variable scope
 - Update README.md to include instructions and examples

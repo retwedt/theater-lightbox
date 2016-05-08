@@ -2,19 +2,20 @@
   "name": "Theater",
   "description": "Theater, A Lightbox Clone",
   "main": [
-    "source/img/**.*",
-    "source/js/**.*",
-    "source/scss/**.*"
+    "src/img/**.*",
+    "src/js/**.*",
+    "src/scss/**.*"
   ],
   "authors": ["Rex Twedt", "rex@rextwedt.com"],
   "license": "MIT",
-  "homepage": "https://github.com/retwedt/theater-lightbox.git",
+  "homepage": "https://github.com/retwedt/theater-lightbox.git#reademe.md",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "assets",
-    "demo"
+    "_assets",
+    "_demo",
+    ".publish"
   ],
   "devDependencies": {},
   "dependencies": {},

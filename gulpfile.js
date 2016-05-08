@@ -1,4 +1,4 @@
-// Slide-Show, an Image Carousel Clone
+// Theater, a Lightbox Clone
 
 
 // Gulp and Plugins
