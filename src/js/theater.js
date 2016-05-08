@@ -4,9 +4,9 @@
 // Wrap everything in an iffe to restrict variable scope
 (function() {
 	// global variables
-	var newTheater;
-	var winWidth = 0;
-	var winHeight = 0;
+	var _newTheater;
+	var _winWidth = 0;
+	var _winHeight = 0;
 
 
 	/**
@@ -16,10 +16,10 @@
 	* @private
 	*/
 	var _onLoad = function() {
-		newTheater = new TheaterLightbox();
-		newTheater.buildModal();
-		newTheater.setup();
-		newTheater._getDimensions();
+		_newTheater = new TheaterLightbox();
+		_newTheater.buildModal();
+		_newTheater.setup();
+		_newTheater._getDimensions();
 	};
 
 
@@ -30,7 +30,7 @@
 	* @private
 	*/
 	var _onResize = function() {
-		newTheater._getDimensions();
+		_newTheater._getDimensions();
 	};
 
 
@@ -42,6 +42,7 @@
 	/**
 	* Create a Lightbox for displaying images, videos, and YouTube videos.
 	*
+	* @class
 	* @constructor TheaterLightbox
 	*/
 	function TheaterLightbox() {
@@ -86,18 +87,18 @@
 		*/
 		this.ytHeight = 315;
 		/**
-		* @property {array} modalWrap
-		* @property {array} modal
-		* @property {array} modalRight
-		* @property {array} modalLeft
-		* @property {array} modalClose
-		* @property {array} modalContent
-		* @property {array} modalText
-		* @property {array} image
-		* @property {array} iframe
-		* @property {array} timelineWrap
-		* @property {array} bigDot
-		* @property {array} smallDot
+		* @property {element} modalWrap
+		* @property {element} modal
+		* @property {element} modalRight
+		* @property {element} modalLeft
+		* @property {element} modalClose
+		* @property {element} modalContent
+		* @property {element} modalText
+		* @property {element} image
+		* @property {element} iframe
+		* @property {element} timelineWrap
+		* @property {element} bigDot
+		* @property {element} smallDot
 		*/
 		this.modalWrap, this.modal, this.modalRight, this.modalLeft, this.modalClose, this.modalContent, this.modalText, this.image, this.iframe, this.timelineWrap, this.bigDot, this.smallDot;
 	};
@@ -323,12 +324,12 @@
 		var imgRatio = this.mediaWidth / this.mediaHeight;
 
 		// calculate width based on height
-		var newHeight = (winHeight * 0.9) - 80;
+		var newHeight = (_winHeight * 0.9) - 80;
 		var newWidth = newHeight * imgRatio;
 
 		// if the width is wider than the screen, calculate ratio based on width instead
-		if ((newWidth+48) >= winWidth) {
-			newWidth = (winWidth * 0.9);
+		if ((newWidth+48) >= _winWidth) {
+			newWidth = (_winWidth * 0.9);
 			newHeight = newWidth * (1/imgRatio);
 		}
 
@@ -444,8 +445,8 @@
 	* @private
 	*/
 	TheaterLightbox.prototype._getDimensions = function() {
-		winWidth = document.documentElement.clientWidth;
-		winHeight = document.documentElement.clientHeight
+		_winWidth = document.documentElement.clientWidth;
+		_winHeight = document.documentElement.clientHeight
 		var curMedia = this.modalContent.querySelector("img") || this.modalContent.querySelector("iframe");
 		if (curMedia) {
 			this._setModalDimesions(curMedia);
